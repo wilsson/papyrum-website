@@ -32,24 +32,21 @@ Papyrum is a tool that will help you in the creation of your design system, styl
 ### Installation
 
 ```bash
-npm i @papyrum/cli @papyrum/ui-docs -D -E
+yarn add --dev @papyrum/cli @papyrum/ui-docs
 ```
 
 > You need react y react-dom with 16.8.6 installed.
 
 ### Usage
 
-You `package.json`
+Add the following to your  `package.json`
 
 ```json
 {
   "name": "my_project",
   "scripts": {
-    "papyrum:dev": "papyrum dev",
-    "papyrum:build": "papyrum build"
-  },
-  "devDependencies": {
-    "papyrum": "latest"
+    "dev": "papyrum dev",
+    "build": "papyrum build"
   }
 }
 ```
@@ -64,6 +61,12 @@ name: Hello world
 # Hello world
 
 Hello, I'm a mdx file!
+```
+
+execute
+
+```bash
+yarn dev
 ```
 
 <img src={helloWorldImage} style={{ width: '100%'}}/>
