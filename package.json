@@ -1,0 +1,28 @@
+{
+  "name": "papyrum-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "papyrum dev",
+    "build": "papyrum build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilsson/papyrum-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wilsson/papyrum-website/issues"
+  },
+  "homepage": "https://github.com/wilsson/papyrum-website#readme",
+  "devDependencies": {
+    "@papyrum/cli": "^0.0.3-alpha.0",
+    "@papyrum/ui-docs": "^0.0.3-alpha.0"
+  }
+}

@@ -1,0 +1,139 @@
+import { Playground } from '@papyrum/ui-docs';
+import propsImage from './assets/props.png';
+import componentsImage from './assets/components.png';
+import paletteImage from './assets/palette.png';
+import fontsImage from './assets/fonts.png';
+
+# Build with components
+
+Papyrum has the package `@papyrum/ui-docs` that will help you document
+
+### Playground
+
+```
+import { Playground } from '@papyrum/ui-docs';
+import { Button } from './Button';
+
+# Button
+
+<Playground>
+  <Button>My Button</Button>
+</Playground>
+```
+
+In live
+
+<Playground>
+  <div>
+    Hello Worldw
+  </div>
+</Playground>
+
+### Props
+
+```
+import { Props } from '@papyrum/ui-docs';
+import { Button } from './Button';
+
+# Button
+
+<Props of={Button} />
+```
+
+Result
+
+<img src={propsImage} style={{width: '100%'}} />
+
+### Components
+
+All documentation that has the status property will appear in this list
+
+`Button.mdx`
+
+```
+---
+status: development
+---
+import { Playground } from '@papyrum/ui-docs';
+import { Button } from './Button';
+
+# Button
+
+<Playground>
+  <Button>My Button</Button>
+</Playground>
+```
+
+`Introduction.mdx`
+
+```
+import { Components } from '@papyrum/ui-docs';
+
+### List components
+
+<Components />
+```
+
+Result
+
+<img src={componentsImage} style={{width: '100%'}}/>
+
+### Fonts
+
+```
+import { FontSize } from '@papyrum/ui-docs';
+
+### Fonts
+
+<Fonts
+  fontFamily='Nunito Sans'
+  fonts={['34px', '24px', '14px']}
+/>
+```
+
+Result
+
+<img src={fontsImage} style={{width: '100%'}}/>
+
+### Palette
+
+```
+import { Palette  } from '@papyrum/ui-docs';
+
+### Colors
+
+<Palette colors={[
+  {
+    color: '#1abc9c',
+    name: 'turquoise'
+  },
+  {
+    color: '#3498db',
+    name: 'blue'
+  },
+  {
+    color: '#9b59b6',
+    name: 'amethyst'
+  },
+  {
+    color: '#e67e22',
+    name: 'orange'
+  },
+  {
+    color: '#e74c3c',
+    name: 'red'
+  },
+  {
+    color: '#2c3e50',
+    name: 'midnight_blue'
+  },
+  {
+    color: '#95a5a6',
+    name: 'gray'
+  }
+]} />
+```
+
+Result
+
+<img src={paletteImage} style={{width: '100%'}}/>
