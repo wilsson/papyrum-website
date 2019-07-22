@@ -1,0 +1,33 @@
+---
+name: CLI
+---
+
+# CLI
+
+### Papyrum CLI
+
+`@papyrum/cli` include more options for `dev` and `build`
+
+- `port` - Port of the development server 
+- `dest` - Destination location for the compilation of `papyrum build` default `.papyrum/dist` 
+- `ignore` - Content to ignore by papyrum, use glob matching based on [globby](https://github.com/sindresorhus/globby)
+- `title` - Title of your application
+- `typescript` - Support for typescript
+- `homepage` - Link from your github repository
+
+More information `papyrum dev --help`
+
+### papyrumrc.js
+
+You can also use the configuration file `papyrumrc.js`
+
+```ts
+export default {
+  dest: 'docs'
+  title: 'Papyrum',
+  port: 4000,
+  typescript: true,
+  ignore: ['dist'],
+  homepage: 'https://github.com/wilsson/papyrum'
+}
+```
