@@ -1,33 +1,41 @@
 ---
 name: CLI
+menu: API
 ---
 
 # CLI
 
-### Papyrum CLI
+### Papyrum CLI commands
 
-`@papyrum/cli` include more options for `dev` and `build`
+#### `papyrum dev`
 
-- `port` - Port of the development server 
-- `dest` - Destination location for the compilation of `papyrum build` default `.papyrum/dist` 
-- `ignore` - Content to ignore by papyrum, use glob matching based on [globby](https://github.com/sindresorhus/globby)
-- `title` - Title of your application
-- `typescript` - Support for typescript
-- `homepage` - Link from your github repository
+Create and serve the application with [Webpack Dev Server](https://webpack.js.org/configuration/dev-server/).
 
-More information `papyrum dev --help`
+#### `papyrum build`
 
-### papyrumrc.js
+Compile your application for production.
 
-You can also use the configuration file `papyrumrc.js`
 
-```ts
-export default {
-  dest: 'docs'
-  title: 'Papyrum',
-  port: 4000,
-  typescript: true,
-  ignore: ['dist'],
-  homepage: 'https://github.com/wilsson/papyrum'
-}
-```
+For both commands you can use the following options:
+
+| Option | Default | Description |
+| - | - | ----- |
+| `--title` | name of package.json | Title of your application|
+| `--port` | 3000 | Port of the development server |
+| `--typescript` | false | Support for typescript |
+| `--homepage` | homepage of package.json | Link from your github repository |
+| `--dest` | ./.papyrum/dist | Destination location for the compilation of `papyrum build` |
+| `--ignore` |[ ] | Content to ignore by papyrum, use glob matching based on [globby](https://github.com/sindresorhus/globby) |
+| `--static` | static | Folder where static files will be served
+
+You can also use the shortened versions of the options:
+
+| Option | Short |
+| - | - |
+| `--title` | `--t` |
+| `--port` | `--p` |
+| `--typescript` | `--ts` |
+| `--homepage` |  |
+| `--dest` | `--d` |
+| `--ignore` | `--i` |
+| `--static` |  |

@@ -1,0 +1,120 @@
+---
+menu: Guides
+name: Markdown Features
+---
+
+import { CustomBrowser } from './components/Browser';
+
+# Markdown Features
+
+___
+
+### MDX
+
+By default papyrum uses [MDX](https://mdxjs.com/) which is a format that allows you to write JSX
+inside our Markdown documents, you can easily import your components from other files.
+
+> All documentation files must have the extension `.mdx`
+
+Example:
+```
+# Hello, *world*!
+
+<div style={{ padding: '20px', backgroundColor: 'skyblue' }}>
+  <h3>This is JSX</h3>
+</div>
+```
+
+Result:
+
+# Hello, *world*!
+
+<div style={{ padding: '20px', backgroundColor: 'skyblue' }}>
+  <h3 style={{ color: '#5C6975' }}>This is JSX</h3>
+</div>
+
+
+
+### Markdown Headers
+
+| Header | Description |
+| - | - |
+| `name` | A name that represents your document in the sidebar. |
+| `menu` | When you want to add your document in a new menu. |
+| `route` | You can define the name of your route, example if you want your document to be in `/my-route`, `route: my-route`. |
+| `status` | You can define the status of a component, papyrum handles 3 types of status that are: development, deprecated and ready. |
+
+In your `.mdx` file:
+
+```
+---
+name: Button
+menu: Components
+route: my-bytton
+status: development
+---
+
+# Hi!
+```
+
+Result:
+
+<CustomBrowser route="http://localhost:3000/my-button">
+  <h1 style={{color: '#5C6975'}}>Hi!</h1>
+</CustomBrowser>
+
+### Syntax highlighting
+
+Code blocks are text blocks wrapped around by strings of 3 backticks. 
+
+    ```
+    const MyComponent = () => <div>Hello</div>
+    ```
+
+Code highlighting is done with [Prism React Renderer](https://github.com/FormidableLabs/prism-react-renderer).
+
+```jsx
+const MyComponent = () => <div>Hello</div>
+```
+
+By default the [Dracula](https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/themes/dracula.js) theme is used.
+In addition you can use any other [theme](https://github.com/FormidableLabs/prism-react-renderer/tree/master/src/themes) Prism React Renderer.
+
+For example if you want to use the [Palenight](https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/themes/palenight.js) theme you will have to configure your `papyrum.config.js`
+
+```
+// papyrum.config.js
+export default {
+  prism: {
+    theme: require('prism-react-renderer/themes/palenight')
+  }
+}
+```
+
+### Hints and Callouts
+
+ Hints and Callouts blocks are text blocks wrapped around by strings of 3 backticks. 
+
+    ```tip Tip!
+    My tip
+    ```
+
+```tip Tip!
+My tip
+```
+
+    ```info Information!
+    My information
+    ```
+
+```info Information!
+My information
+```
+
+    ```warning Warning!
+    My warning
+    ```
+
+```warning Warning!
+My warning
+```

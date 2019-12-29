@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/wilsson/papyrum-website#readme",
   "devDependencies": {
-    "@papyrum/cli": "^0.0.5-alpha.0",
-    "@papyrum/ui-docs": "^0.0.5-alpha.0"
+    "@papyrum/cli": "1.2.0-alpha.0",
+    "@papyrum/ui-docs": "1.2.0-alpha.0"
   }
 }

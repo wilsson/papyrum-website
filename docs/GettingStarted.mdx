@@ -2,27 +2,28 @@
 route: /
 ---
 
-
-import { Components } from '@papyrum/ui'
-import helloWorldImage from './assets/hello-world.png';
-import logoImage from './assets/logo.png';
-
 <div style={{ textAlign: 'center'}}>
-  <img src={logoImage} style={{maxWidth: '100%'}} />
+  <img src="/logo2.png" style={{width: '180px', marginBottom: '40px'}} />
 </div>
 
 Papyrum is a tool that will help you in the creation of your design system, style guide or in the documentation of your project.
 
 ### Features
 
-- Zero config
+- Zero config.
 - [MDX based](https://mdxjs.com/), builds documentation with the markdown of the component era.
-- Typescript support
+- Typescript support.
+- Syntax highlighting with [Prism React Renderer](https://github.com/FormidableLabs/prism-react-renderer).
+- Playground for live editing React code with [React Live](https://github.com/FormidableLabs/react-live).
+
+<div style={{ textAlign: 'center'}}>
+  <img src="/example.png" style={{width: '100%', marginTop: '20px'}} />
+</div>
 
 ### Installation
 
 ```bash
-yarn add --dev @papyrum/cli @papyrum/ui-docs
+yarn add --dev @papyrum/cli
 ```
 
 > You need react y react-dom with 16.8.6 installed.
@@ -59,7 +60,7 @@ execute
 yarn dev
 ```
 
-<img src={helloWorldImage} style={{ width: '100%'}}/>
+<img src="/hello.png" style={{ width: '100%'}}/>
 
 ### Examples
 

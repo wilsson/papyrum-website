@@ -1,52 +1,87 @@
-import { Playground } from '@papyrum/ui-docs';
-import propsImage from './assets/props.png';
-import componentsImage from './assets/components.png';
-import paletteImage from './assets/palette.png';
-import fontsImage from './assets/fonts.png';
+---
+menu: Guides
+---
+
+import { Playground, Fonts, Palette } from '@papyrum/ui-docs';
 
 # Build with components
 
-Papyrum has the package `@papyrum/ui-docs` that will help you document
+___
+
+Papyrum has a package that will help you document better.
+
+#### Instalation
+
+```
+npm i @papyrum/ui-docs
+```
+
+or
+
+```
+yarn add @papyrum/ui-docs
+```
 
 ### Playground
 
+Playground for live editing react code.
+
+Inside your `.mdx` document import `Playground` from `@papyrum/ui-docs`
+
 ```
 import { Playground } from '@papyrum/ui-docs';
-import { Button } from './Button';
 
-# Button
-
-<Playground>
-  <Button>My Button</Button>
-</Playground>
-```
-
-In live
+# My Component
 
 <Playground>
   <div>
-    Hello World
+    Hello World, try changing the text!
+  </div>
+</Playground>
+```
+
+Result
+
+<Playground>
+  <div>
+    Hello World, try changing the text!
   </div>
 </Playground>
 
 ### Props
 
+The Props component shows the [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) defined in your component within your documentation.
+
 ```
-import { Props } from '@papyrum/ui-docs';
+---
+menu: Components
+---
+
+import { Props, Playground } from '@papyrum/ui-docs';
 import { Button } from './Button';
 
 # Button
+___
+
+### Basic usage
+
+<Playground name="default">
+  <Button>My Button</Button>
+</Playground>
+
+### Props
 
 <Props of={Button} />
 ```
 
 Result
 
-<img src={propsImage} style={{width: '100%'}} />
+<img src="/example.png" style={{width: '100%'}} />
 
 ### Components
 
-All documentation that has the status property will appear in this list
+Contains the list of documented components, any
+document that has a header `status` will be found in this list, for example:
 
 `Button.mdx`
 
@@ -54,6 +89,7 @@ All documentation that has the status property will appear in this list
 ---
 status: development
 ---
+
 import { Playground } from '@papyrum/ui-docs';
 import { Button } from './Button';
 
@@ -64,7 +100,7 @@ import { Button } from './Button';
 </Playground>
 ```
 
-`Introduction.mdx`
+Other document, `Introduction.mdx`, we import  `Components` from `@papyrum/ui-docs`.
 
 ```
 import { Components } from '@papyrum/ui-docs';
@@ -76,12 +112,15 @@ import { Components } from '@papyrum/ui-docs';
 
 Result
 
-<img src={componentsImage} style={{width: '100%'}}/>
+<img src="/components.png" style={{width: '100%'}}/>
 
 ### Fonts
 
+Component that gives you a sample of the sources
+you use in your project, you only need to import `Fonts` from `@papyrum/ui-docs`.
+
 ```
-import { FontSize } from '@papyrum/ui-docs';
+import { Fonts } from '@papyrum/ui-docs';
 
 ### Fonts
 
@@ -93,9 +132,15 @@ import { FontSize } from '@papyrum/ui-docs';
 
 Result
 
-<img src={fontsImage} style={{width: '100%'}}/>
+<Fonts
+  fontFamily='Nunito Sans'
+  fonts={['34px', '24px', '14px']}
+/>
 
 ### Palette
+
+Component that gives you a color palette simply and quickly, you just need to import
+`Pallete` from `@papyrum/ui-docs`.
 
 ```
 import { Palette  } from '@papyrum/ui-docs';
@@ -118,22 +163,27 @@ import { Palette  } from '@papyrum/ui-docs';
   {
     color: '#e67e22',
     name: 'orange'
-  },
-  {
-    color: '#e74c3c',
-    name: 'red'
-  },
-  {
-    color: '#2c3e50',
-    name: 'midnight_blue'
-  },
-  {
-    color: '#95a5a6',
-    name: 'gray'
   }
 ]} />
 ```
 
 Result
 
-<img src={paletteImage} style={{width: '100%'}}/>
+<Palette colors={[
+  {
+    color: '#1abc9c',
+    name: 'turquoise'
+  },
+  {
+    color: '#3498db',
+    name: 'blue'
+  },
+  {
+    color: '#9b59b6',
+    name: 'amethyst'
+  },
+  {
+    color: '#e67e22',
+    name: 'orange'
+  }
+]} />

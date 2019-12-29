@@ -1,41 +1,85 @@
-# Document settings
+---
+menu: API
+name: papyrum.config.js
+---
 
-#### Name
+# papyrum.config.js
 
-A name that represents your document in the sidebar
+___
+
+`papyrum.config.js` it contains the configuration of your application and is in the root of your directory.
+
+all options of the `dev` and `build` commands can be used within `papyrum.config.js`
 
 ```
----
-name: Hello world
----
+// papyrum.config.js
+export default {
+  title: 'My App',
+  port: 3000,
+  typescript: true,
+  homepage: 'app.site',
+  dest: 'dist-docs',
+  ignore: 'dist',
+  static: 'static'
+}
 ```
 
-#### Route
+#### `menu`
+
+- Type: `String[]`
+
+By default the menu items are sorted alphabetically but if you want
+to change your order you can use this field indicating the names of items in the respective order.
 
 ```
----
-route: /
----
+// papyrum.config.js
+export default {
+  menu: [
+    'Getting started',
+    'Guides',
+    'Build with components',
+    'Document settings'
+  ]
+}
 ```
 
-#### Menu
+#### `prism`
+
+- Type: `Object`
 
 ```
----
-menu: Components
----
+// papyrum.config.js
+export default {
+  prism: {
+    theme: require('prism-react-renderer/themes/palenight')
+  }
+}
 ```
 
-#### Status
+#### `template`
 
-You can define the status of a component, papyrum handles 3 types of status that are:
+- Type: `String`
 
-- Development
-- Deprecated
-- Ready
+By default an index.html is created, if you want to customize the contents of `intex.html` add
+this field indicating the path of your `index.html`.
 
 ```
----
-status: development
----
+// papyrum.config.js
+export default {
+  template: 'index.html'
+}
+```
+
+#### `logo`
+
+- Type: `String`
+
+You can choose the logo of your application that is located in
+sthe header with this field indicating the route.
+
+```
+// papyrum.config.js
+export default {
+  logo: 'logo.png'
+}
 ```
