@@ -20,47 +20,63 @@ Papyrum is a tool that will help you in the creation of your design system, styl
   <img src="/example.png" style={{width: '100%', marginTop: '20px'}} />
 </div>
 
-### Installation
+### Scaffold project website
+
+Papyrum brings with it a command that will help you build your project based on templates.
 
 ```bash
-yarn add --dev @papyrum/cli
+npx @papyrum/cli new [name] [template]
 ```
 
-> You need react y react-dom with 16.8.6 installed.
-
-### Usage
-
-Add the following to your  `package.json`
-
-```json
-{
-  "name": "my_project",
-  "scripts": {
-    "dev": "papyrum dev",
-    "build": "papyrum build"
-  }
-}
-```
-
-Hello world with papyrum, create one file `.mdx`
-
-```
----
-name: Hello world
----
-
-# Hello world
-
-Hello world with mdx
-```
-
-execute
+For example:
 
 ```bash
+npx @papyrum/cli new my-website basic
+
+```
+
+| Template | Description |
+| ------------- | ------------- |
+| `basic` | Basic template |
+| `typescript` | Basic template with typescript |
+
+### Project  structure
+
+```
+my-website
+├── docs
+│   ├── Introduction.mdx
+│   └── Button.mdx
+├── src
+│   └── components
+├── static
+│   └── img
+│       ├── favicon.ico
+│       └── logo.svg
+├── package.json
+├── .editorconfig
+├── papyrum.config.js
+└── yarn.lock
+```
+
+### Structure summary
+
+- `docs` : Folder where our `.mdx` documentation files are hosted.
+- `src` : Ffolder where the components to be built are stored, in the case of building a component library.
+- `static` : Default place where static files will be served.
+- `papyrum.config.js` : Papyrum settings.
+
+Now execute this command to be able to raise a development server that will listen to your changes as you develop.
+
+```
 yarn dev
 ```
 
-<img src="/hello.png" style={{ width: '100%'}}/>
+or
+
+```
+npm run dev
+```
 
 ### Examples
 
