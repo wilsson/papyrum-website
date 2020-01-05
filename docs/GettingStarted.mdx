@@ -8,7 +8,7 @@ route: /
 
 Papyrum is a tool that will help you in the creation of your design system, style guide or in the documentation of your project.
 
-### Features
+## Features
 
 - Zero config.
 - [MDX based](https://mdxjs.com/), builds documentation with the markdown of the component era.
@@ -17,10 +17,10 @@ Papyrum is a tool that will help you in the creation of your design system, styl
 - Playground for live editing React code with [React Live](https://github.com/FormidableLabs/react-live).
 
 <div style={{ textAlign: 'center'}}>
-  <img src="/example.png" style={{width: '100%', marginTop: '20px'}} />
+  <img src="/img/example.png" style={{width: '100%', marginTop: '20px'}} />
 </div>
 
-### Scaffold project website
+## Start a new project
 
 Papyrum brings with it a command that will help you build your project based on templates.
 
@@ -40,7 +40,7 @@ npx @papyrum/cli new my-website basic
 | `basic` | Basic template |
 | `typescript` | Basic template with typescript |
 
-### Project  structure
+### Project structure
 
 ```
 my-website
@@ -78,7 +78,49 @@ or
 npm run dev
 ```
 
-### Examples
+## Add Papyrum to an existing project
+
+You just need to install the command line tool:
+
+```
+yarn add @papyrum/cli
+```
+
+or
+
+```
+npm install @papyrum/cli
+```
+
+Then create an `.mdx` file:
+
+```
+---
+route: /
+name: Hello world
+---
+
+# Hi!
+___
+
+Hello world with mdx
+```
+
+Finally run:
+
+```
+yarn dev
+```
+
+or
+
+```
+npm run dev
+```
+
+## Examples
 
 - [Basic](https://github.com/wilsson/papyrum/tree/master/examples/basic)
 - [With typescript](https://github.com/wilsson/papyrum/tree/master/examples/typescript)
+
+If you have any suggestion of a feature or feedback please do not hesitate to create a [issue](https://github.com/wilsson/papyrum/issues).

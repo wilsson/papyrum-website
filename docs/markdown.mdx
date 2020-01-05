@@ -3,39 +3,48 @@ menu: Guides
 name: Markdown Features
 ---
 
+import { Playground, Palette, Fonts } from '@papyrum/ui-docs';
 import { CustomBrowser } from './components/Browser';
 
 # Markdown Features
 
 ___
 
-### MDX
+## Table of contents
 
-By default papyrum uses [MDX](https://mdxjs.com/) which is a format that allows you to write JSX
-inside our Markdown documents, you can easily import your components from other files.
+## MDX
 
-> All documentation files must have the extension `.mdx`
+By default **Papyrum** uses [MDX](https://mdxjs.com/) which is a format that allows you to write JSX
+inside our [Markdown](https://daringfireball.net/projects/markdown/syntax) documents,
+you can easily import your components  inside of their files `.mdx`.
+
+> We use MDX as the parsing engine, which can do much more than just parsing Markdown. 
 
 Example:
+
+Create in file `.jsx` or `.tsx`
+
 ```
-# Hello, *world*!
+import React from 'react';
 
-<div style={{ padding: '20px', backgroundColor: 'skyblue' }}>
-  <h3>This is JSX</h3>
-</div>
+const Button = ({ children }) => <button>{children}</button>
+
+export default Button;
 ```
 
-Result:
+Create in a file `.mdx`
+```
+import Button from './Button';
 
-# Hello, *world*!
+# Button
+<Button>My Button!</Button>
+```
 
-<div style={{ padding: '20px', backgroundColor: 'skyblue' }}>
-  <h3 style={{ color: '#5C6975' }}>This is JSX</h3>
-</div>
+## Markdown headers
 
 
-
-### Markdown Headers
+They are metadata that allow papyrum to create great things, such as the sidebar,
+name for menus, routes and a component that will house the list of documented components.
 
 | Header | Description |
 | - | - |
@@ -63,7 +72,224 @@ Result:
   <h1 style={{color: '#5C6975'}}>Hi!</h1>
 </CustomBrowser>
 
-### Syntax highlighting
+## Shortcodes
+
+This feature allows you to have a component exposed for all your documents
+without the need to import it, useful for components that are frequently used in your `.mdx` documents.
+
+Papyrum has the following integrated shortcodes that will help you document:
+
+### Playground
+
+Playground for live editing react code.
+
+`.mdx` file.
+
+```
+# Button
+___
+<Playground>
+  <button>My Button!</button>
+</Playground>
+```
+
+Result:
+
+<Playground>
+  <button>My Button!</button>
+</Playground>
+
+### Props
+
+It allows us to have a table that shows us the [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) of our component
+
+```
+import Button from './Button';
+
+## Props
+
+<Props of={Button} />
+```
+
+Result:
+
+<img src="/img/example.png" style={{width: '100%'}}/>
+
+### Components
+
+Contains the list of documented components, any document that has a header `status` will be found in this list, for example:
+
+`Button.mdx`
+
+```
+---
+status: development
+---
+
+import { Button } from './Button';
+
+# Button
+
+<Playground>
+  <Button>My Button</Button>
+</Playground>
+```
+
+Other document, `Introduction.mdx`, we import  `Components` from `@papyrum/ui-docs`.
+
+```
+### List components
+
+<Components />
+```
+
+Result:
+
+<img src="/img/components.png" style={{width: '100%'}}/>
+
+### Fonts
+
+Component that gives you a sample of the sources.
+
+```
+### Fonts
+
+<Fonts
+  fontFamily='Nunito Sans'
+  fonts={['34px', '24px', '14px']}
+/>
+```
+
+Result
+
+<Fonts
+  fontFamily='Nunito Sans'
+  fonts={['34px', '24px', '14px']}
+/>
+
+### Palette
+
+Component that gives you a color palette simply and quickly.
+
+```
+### Colors
+
+<Palette colors={[
+  {
+    color: '#1abc9c',
+    name: 'turquoise'
+  },
+  {
+    color: '#3498db',
+    name: 'blue'
+  },
+  {
+    color: '#9b59b6',
+    name: 'amethyst'
+  },
+  {
+    color: '#e67e22',
+    name: 'orange'
+  }
+]} />
+```
+
+Result:
+
+<Palette colors={[
+  {
+    color: '#1abc9c',
+    name: 'turquoise'
+  },
+  {
+    color: '#3498db',
+    name: 'blue'
+  },
+  {
+    color: '#9b59b6',
+    name: 'amethyst'
+  },
+  {
+    color: '#e67e22',
+    name: 'orange'
+  }
+]} />
+
+### Link
+
+This component will help you address your other documents.
+
+```
+# Hi!
+
+<Link to="/button">Go</Link>
+```
+
+
+If any of the short code conflicts with any of its built components, it can disable them and use the classic import and place an alias.
+
+To disable, add this field in your `papyrum.config.js` :
+```
+
+// papyrum.config.js
+export default {
+  disableShortcuts: true,
+}
+```
+
+With this the following Shortcodes will be deactivated:
+
+- Playground
+- Components
+- Props
+- Fonts
+- Palette
+- Link
+
+Now to use them you only need to import in your `.mdx` file:
+
+Will need to install `@papyrum/ui-docs`.
+
+```
+import { Playground as MyPlayground } from '@papyrum/ui-docs';
+
+<MyPlayground>
+  <div>My Playground</div>
+</MyPlayground>
+
+```
+
+### Creating your own Shortcodes
+
+To create your own Shortcodes, you must create an object that houses its components,
+and pass it as props to the `Root` root component, example:
+
+```
+// .papyrum/App.js
+import React from 'react';
+import { hot } from 'react-hot-loader/root';
+import Root from '@papyrum/cli';
+import db from './db.json';
+import { imports } from './imports';
+
+const map = {
+  Shortcode: () => <div>My Shortcode!</div>
+};
+
+const App = () => <Root db={db} components={map} imports={imports} />;
+
+export default hot(App);
+```
+
+Now you can use it in any `.mdx` file of your documentation.
+
+```
+# Example:
+
+<Shortcode />
+```
+
+## Syntax highlighting
 
 Code blocks are text blocks wrapped around by strings of 3 backticks. 
 
@@ -91,7 +317,7 @@ export default {
 }
 ```
 
-### Hints and Callouts
+## Hints and callouts
 
  Hints and Callouts blocks are text blocks wrapped around by strings of 3 backticks. 
 
@@ -118,3 +344,26 @@ My information
 ```warning Warning!
 My warning
 ```
+
+## Generating table of contents
+
+you should only add the following at the top of your `.mdx`
+
+```
+## Table of contents
+
+## Subtitle 1
+
+### Other
+
+## Subtitle 2
+
+## Subtitle 3
+```
+
+And will result, with anchors that will take you to the selected section:
+
+- Subtitle 1
+  - Other
+- Subtitle 2
+- Subtitle 3

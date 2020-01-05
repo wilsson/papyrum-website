@@ -1,11 +1,61 @@
 ---
 menu: Guides
+name: Deployment
 ---
 
 # Deploy
 
 ___
 
+To build the static of your application run:
 
-```info In construction
-The documentation for the deployment is being built.
+```
+yarn build
+```
+
+or
+
+```
+npm run build
+```
+
+## Deploying to Netlify
+
+[Netlify](https://www.netlify.com/) it is a great tool that allows you to implement your application quickly,
+**Papyrum** is created with Netlify, you must first login to netlify.
+
+### Step 1
+
+To select, New site from Git.
+
+<img src="img/n1.png"/>
+
+### Step 2
+
+Choose the git provider where your code is hosted.
+
+<img src="img/n2.png"/>
+
+### Step 3
+
+Place data for the configuration such as the branch for the deployment,
+construction command, and the polishing folder and in the case of using yarn add an environment variable
+
+<img src="img/n3.png"/>
+
+Finally, at the root of your project create the `netlify.toml` file
+
+### Step 4
+```
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+```
+
+> Do not forget
+
+- Build command: `yarn build`
+- Publish directory: `.papyrum/dist`
+- Environment variables: `YARN_VERSION` equal `1.17.3`

@@ -1,0 +1,1 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8d7648ec-5d26-42ab-8e37-544945613135/deploy-status)](https://app.netlify.com/sites/goofy-archimedes-32cf23/deploys)
