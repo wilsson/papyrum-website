@@ -8,5 +8,6 @@ export default {
     'Guides',
     'Build with components',
     'Document settings'
-  ]
+  ],
+  template: './static/index.html'
 }
