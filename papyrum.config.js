@@ -1,4 +1,5 @@
 export default {
+  port: 5000,
   logo: 'logo.png',
   favicon: 'img/favicon.ico',
   title: 'Papyrum',
