@@ -3,6 +3,7 @@ export default {
   logo: 'logo.png',
   favicon: 'img/favicon.ico',
   title: 'Papyrum',
+  ignore: 'README.md',
   homepage: 'https://github.com/wilsson/papyrum',
   menu: [
     'Getting started',

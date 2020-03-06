@@ -11,7 +11,7 @@ ___
 
 all options of the `dev` and `build` commands can be used within `papyrum.config.js`
 
-```
+```js
 // papyrum.config.js
 export default {
   title: 'My App',
@@ -31,7 +31,7 @@ export default {
 By default the menu items are sorted alphabetically but if you want
 to change your order you can use this field indicating the names of items in the respective order.
 
-```
+```js
 // papyrum.config.js
 export default {
   menu: [
@@ -43,11 +43,59 @@ export default {
 }
 ```
 
+#### `Colors`
+
+Gives you the possibility to change the theme of the application for both dark mode and light mode.
+
+By default papyrum handles the following settings
+
+- Type: `Object`
+
+```js
+// papyrum.config.js
+export default {
+  colors: {
+    light: {
+      primary: '#01A5FE',
+      header: {
+        background: '#FFFFFF',
+        color: '#5C6975',
+      },
+      sidebar: {
+        background: '#FFFFFF',
+        color: '#5C6975',
+        activeItem: '#FFFFFF'
+      },
+      content: {
+        background: '#FFFFFF',
+        color: '#5C6975'
+      }
+    },
+    dark: {
+      primary: '#01A5FE',
+      header: {
+        background: '#181A1B',
+        color: '#CCD5DE',
+      },
+      sidebar: {
+        background: '#181A1B',
+        color: '#CCD5DE',
+        activeItem: '#FFFFFF'
+      },
+      content: {
+        background: '#141414',
+        color: '#CCD5DE'
+      }
+    }
+  }
+}
+```
+
 #### `prism`
 
 - Type: `Object`
 
-```
+```js
 // papyrum.config.js
 export default {
   prism: {
@@ -63,7 +111,7 @@ export default {
 By default an index.html is created, if you want to customize the contents of `intex.html` add
 this field indicating the path of your `index.html`.
 
-```
+```js
 // papyrum.config.js
 export default {
   template: 'index.html'
@@ -77,7 +125,7 @@ export default {
 You can choose the logo of your application that is located in
 sthe header with this field indicating the route or URL.
 
-```
+```js
 // papyrum.config.js
 export default {
   logo: 'img/logo.png'
@@ -90,7 +138,7 @@ export default {
 
 Route or URL of your favicon.
 
-```
+```js
 // papyrum.config.js
 export default {
   logo: 'img/favicon.ico'
@@ -103,7 +151,7 @@ export default {
 
 Disable internal Shortcodes.
 
-```
+```js
 // papyrum.config.js
 export default {
   disableShortcuts: true
