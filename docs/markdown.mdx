@@ -24,7 +24,7 @@ Example:
 
 Create in file `.jsx` or `.tsx`
 
-```
+```js
 import React from 'react';
 
 const Button = ({ children }) => <button>{children}</button>
@@ -113,7 +113,7 @@ import Button from './Button';
 
 Result:
 
-<img src="https://user-images.githubusercontent.com/4754339/74110459-d3c0f700-4b5a-11ea-8ba9-acfe754b2e61.png" style={{width: '100%'}}/>
+<img src="https://user-images.githubusercontent.com/4754339/91013125-d80ba980-e5ac-11ea-805d-0361ece616cd.png" style={{width: '100%'}}/>
 
 ### Components
 
@@ -145,7 +145,7 @@ Other document, `Introduction.mdx`, we import  `Components` from `@papyrum/ui-do
 
 Result:
 
-<img src="components-update" src="https://user-images.githubusercontent.com/4754339/74112129-08877b00-4b68-11ea-81bf-6b2030a30864.png" style={{width: '100%'}}/>
+<img src="components-update" src="https://user-images.githubusercontent.com/4754339/91071194-83444f00-e5fd-11ea-996d-d4d4c1dc1372.png" style={{width: '100%'}}/>
 
 ### Fonts
 
@@ -155,7 +155,7 @@ Component that gives you a sample of the sources.
 ### Fonts
 
 <Fonts
-  fontFamily='Nunito Sans'
+  fontFamily='Arial'
   fonts={['34px', '24px', '14px']}
 />
 ```
@@ -163,7 +163,7 @@ Component that gives you a sample of the sources.
 Result
 
 <Fonts
-  fontFamily='Nunito Sans'
+  fontFamily='Arial'
   fonts={['34px', '24px', '14px']}
 />
 
@@ -229,8 +229,8 @@ This component will help you address your other documents.
 If any of the short code conflicts with any of its built components, it can disable them and use the classic import and place an alias.
 
 To disable, add this field in your `papyrum.config.js` :
-```
 
+```js
 // papyrum.config.js
 export default {
   disableShortcuts: true,
@@ -264,7 +264,7 @@ import { Playground as MyPlayground } from '@papyrum/ui-docs';
 To create your own Shortcodes, you must create an object that houses its components,
 and pass it as props to the `Root` root component, example:
 
-```
+```js
 // .papyrum/App.js
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
@@ -308,7 +308,7 @@ In addition you can use any other [theme](https://github.com/FormidableLabs/pris
 
 For example if you want to use the [Palenight](https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/themes/palenight.js) theme you will have to configure your `papyrum.config.js`
 
-```
+```js
 // papyrum.config.js
 export default {
   prism: {
